@@ -5,8 +5,10 @@
     --color-primary: #75B4CE;  /* Blue */
     --color-accent-1: #FB6D2A; /* Orange */
     --color-accent-2: #FDF9EF; /* Cream */
+    --color-accent-3: #C9E6F0;
+    --color-accent-4: #FFFFFF;
 
-    --bg: #FFFFFF;              /* neutral */
+    --bg: #FDF9EF;              /* neutral */
     --text: #111827;            /* neutral */
     --muted: #6B7280;           /* neutral */
     --card: #F8FAFC;            /* neutral */
@@ -20,7 +22,7 @@
 html,body{height:100%}
 body{
     margin:0;
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     color: var(--text);
     background: var(--bg);
     line-height: 1.55;
@@ -31,19 +33,32 @@ a{color:inherit;text-decoration:none}
 
 .container{max-width:1100px;margin:0 auto;padding:24px}
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: 800; /* ExtraBold */
+    color: var(--color-primary);
+    word-spacing: 1px;     /* more gap between words */
+    letter-spacing: 0.1px;
+}
+
 /* ============ Header / Nav ============ */
 header{
     position: sticky; top: 0; z-index: 20;
     backdrop-filter: saturate(1.2) blur(6px);
-    background: rgba(255,255,255,0.75);
+    border-bottom: 1px solid #E5E7EB;
+    background: rgba(253, 249, 239, 0.9); /* cream tint */
     border-bottom: 1px solid #E5E7EB;
 }
 .brand{
     display:flex;align-items:center;gap:12px;
-    font-weight:700;color:var(--color-primary);letter-spacing:0.2px
+    font-weight:700;color:var(--color-primary);letter-spacing:0.2px;
+    font-size: xxx-large;
+    font-family: 'Montserrat', sans-serif;
+
+
 }
 .logo{
-    width:36px;height:36px;border-radius:10px;
+    width:50px;height:36px;border-radius:10px;
     background: linear-gradient(135deg,var(--color-accent-1),var(--color-accent-2));
     box-shadow: 0 6px 18px rgba(37,99,235,0.22);
 }
@@ -63,6 +78,7 @@ header{
     padding:10px 14px;border-radius:12px;font-weight:600;
     color: var(--color-primary);
     position:relative;
+    font-size: 1rem;
 }
 .tab-btn:focus-visible{
     outline: 3px solid var(--ring);
@@ -113,7 +129,7 @@ header{
 
 .badge{
     display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600;
-    color: #0b1220; background: linear-gradient(90deg, #FDE68A, #F59E0B); /* uses accent-2 */
+    color: #FDF9EF; background: linear-gradient(90deg, #75B4CE, #FB6D2A); /* uses accent-2 */
 }
 .link{
     color: var(--color-accent-1); font-weight:600;
@@ -124,10 +140,74 @@ footer{
     margin-top:48px;padding:24px 0;border-top:1px solid #E5E7EB;color:#6B7280;font-size:14px
 }
 .logo-img {
-    height: 100px; /* adjust as needed */
+    height: 110px; /* adjust as needed */
     width: auto;
     display: block;
     align-self: center;
+}
+.brand span {
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+/* Team grid */
+.team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.person {
+    text-align: center;
+}
+
+.avatar {
+    width: 100%;
+    aspect-ratio: 1 / 1;     /* perfect square */
+    object-fit: cover;
+    border-radius: 14px;
+    background: var(--color-accent-2); /* cream fallback */
+    border: 2px solid rgba(0,0,0,0.04);
+    box-shadow: var(--shadow);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.person-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin: 6px 0 4px;
+    color: var(--color-primary);
+    font-size: 1.05rem;
+}
+
+.person-role {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+.lang-switch {
+    display: flex;
+    gap: 6px;
+}
+.lang-btn {
+    border: none;
+    background: var(--color-accent-1);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.lang-btn.active {
+    background: var(--color-primary);
+}
+
+
+/* Stack on small screens */
+@media (max-width: 700px) {
+    .team { grid-template-columns: 1fr; }
 }
 
 /* ============ Responsive ============ */

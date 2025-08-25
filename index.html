@@ -7,14 +7,15 @@
     <meta name="description" content="Clean, modern static site with tabbed navigation" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <header>
     <div class="container nav" role="navigation" aria-label="Primary">
-        <div class="brand">
-            <img src="assets/logo2.png" alt="Bright Bulgarian Minds logo" class="logo-img">
+        <div class="brand"> <img src="assets/logo3.png" alt="Bright Bulgarian Minds logo" class="logo-img">
+            <span>Bright Bulgarian Minds</span>
         </div>
         <div class="tabs" role="tablist" aria-label="Sections">
             <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home">
@@ -33,34 +34,30 @@
                 Contact
                 <span class="ink"></span>
             </button>
+            <div class="lang-switch">
+                <button id="lang-en" class="lang-btn">EN</button>
+                <button id="lang-bg" class="lang-btn">BG</button>
+            </div>
         </div>
     </div>
+
 </header>
 
 <main class="container">
     <!-- Hero / Intro -->
     <section class="hero">
         <div class="card">
-            <span class="badge">New</span>
-            <h1>Clean, modern, and fast.</h1>
-            <p>Starter template with tabbed navigation. Built with semantic HTML, accessible tabs, and a simple 3‑color palette.</p>
-            <button class="cta" data-tab-target="panel-projects" aria-label="View Projects">Get Started →</button>
+            <span class="badge">Mission</span>
+            <h1>Bridge students in smaller Bulgarian communities to real workplaces.</h1>
+            <p>We run structured, educational micro‑internships so students outside big cities can see credible career paths and gain real experience — without creating a time sink for employers.</p>
+            <button class="cta" data-tab-target="panel-projects" aria-label="View Programs">Explore Programs →</button>
         </div>
         <div class="card">
-            <h3 style="margin-top:0;color:var(--color-primary)">Palette</h3>
-            <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-                <li style="display:flex;gap:10px;align-items:center">
-                    <span style="width:26px;height:26px;border-radius:8px;background:var(--color-primary);display:inline-block"></span>
-                    <span>Primary</span>
-                </li>
-                <li style="display:flex;gap:10px;align-items:center">
-                    <span style="width:26px;height:26px;border-radius:8px;background:var(--color-accent-1);display:inline-block"></span>
-                    <span>Accent 1</span>
-                </li>
-                <li style="display:flex;gap:10px;align-items:center">
-                    <span style="width:26px;height:26px;border-radius:8px;background:var(--color-accent-2);display:inline-block"></span>
-                    <span>Accent 2</span>
-                </li>
+            <h3 style="margin-top:0;color:var(--color-primary)">At a glance</h3>
+            <ul style="margin:0;padding-left:18px">
+                <li>Regional‑first: municipalities outside Sofia & smaller non‑technical Sofia schools</li>
+                <li>Structured: mentor guide, student workbook, clear learning outcomes</li>
+                <li>Low lift for employers: scoped tasks, midpoint check‑in, end deliverable</li>
             </ul>
         </div>
     </section>
@@ -89,20 +86,54 @@
         <section class="panel" role="tabpanel" id="panel-about" aria-labelledby="tab-about" hidden>
             <div class="grid">
                 <div class="card col-12">
-                    <h2>About</h2>
-                    <p>Write about yourself, your business, or your product. Keep it concise and focused. Use the <span class="link">Projects</span> tab to showcase work.</p>
+                    <h2>The Problem</h2>
+                    <ul>
+                        <li>Students outside major cities struggle to see credible employers or pathways.</li>
+                        <li>Schools want employer links but lack time, templates, and a repeatable model.</li>
+                        <li>Employers are open to helping but fear "time‑sink" internships.</li>
+                    </ul>
                 </div>
-                <div class="card col-4">
-                    <h3 style="margin-top:0">Mission</h3>
-                    <p>State a simple, memorable mission that guides your work and decisions.</p>
+
+                <div class="card col-12">
+                    <h2>Our Solution</h2>
+                    <p>A lightweight, repeatable pipeline co‑run with schools and local employers:</p>
+                    <ol>
+                        <li><strong>Career Talks</strong> (45–60 min) — inspiring, practical sessions. <em>(Future: online, in collaboration with Sofia partners)</em></li>
+                        <li><strong>Job‑Shadow Days</strong> (1–2 days) — on‑site exposure to roles and workflows. <em>(Future)</em></li>
+                        <li><strong>Externships / Remote Projects</strong> (20–30 hrs) — scoped tasks students complete with mentor support.</li>
+                    </ol>
                 </div>
-                <div class="card col-4">
-                    <h3 style="margin-top:0">Values</h3>
-                    <p>What do you stand for? Choose 3–5 values that resonate with your audience.</p>
+
+                <div class="card col-12">
+                    <h2>What Makes It Different?</h2>
+                    <ul>
+                        <li><strong>Regional‑first</strong>: focus on municipalities outside Sofia and smaller non‑technical Sofia schools.</li>
+                        <li><strong>Structure over ad‑hoc</strong>: non‑binding agreement, mentor guide, student workbook, defined outcomes.</li>
+                        <li><strong>Low lift for employers</strong>: scoped tasks, midpoint check‑in, clear end deliverable.</li>
+                    </ul>
                 </div>
-                <div class="card col-4">
-                    <h3 style="margin-top:0">Expertise</h3>
-                    <p>List core skills or domains. Keep the jargon light; focus on outcomes.</p>
+
+                <div class="card col-6">
+                    <h3 style="margin-top:0">Safeguarding & Logistics</h3>
+                    <ul>
+                        <li>Parental consent & teacher point‑person for minors.</li>
+                        <li>GDPR‑compliant forms; collect only necessary data.</li>
+                        <li>Basic accident insurance budgeted for on‑site activities.</li>
+                    </ul>
+                </div>
+                <div class="card col-6">
+                    <h3 style="margin-top:0">Quality & Learning</h3>
+                    <ul>
+                        <li>Each placement sets 3–5 learning goals.</li>
+                        <li>Midpoint call + final student presentation.</li>
+                        <li>Feedback loops: student survey, employer NPS, mentor debrief.</li>
+                        <li>Certificate/letter for CVs & LinkedIn.</li>
+                    </ul>
+                </div>
+
+                <div class="card col-12">
+                    <h3 style="margin-top:0">Budget & Flow (draft)</h3>
+                    <p><em>Approach company → co‑scope project → employer approval → offer to students → deliver → feedback → potential conversion to internship.</em></p>
                 </div>
             </div>
         </section>
@@ -111,28 +142,43 @@
         <section class="panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects" hidden>
             <div class="grid">
                 <div class="card col-12">
-                    <h2>Projects</h2>
-                    <p>Showcase a few selected projects with short descriptions and a link out.</p>
+                    <h2>Programs</h2>
+                    <p>We pilot three formats that scale with school and employer capacity.</p>
                 </div>
+
                 <div class="card col-6">
-                    <h3 style="margin-top:0">Project One</h3>
-                    <p>A brief description of what it is, why it matters, and your role.</p>
-                    <a class="link" href="#" aria-label="Open Project One">View project →</a>
+                    <h3 style="margin-top:0">Career Talks</h3>
+                    <p><strong>45–60 minutes</strong> · In‑class or online. Practical introductions to careers, tools, and pathways.</p>
+                    <ul>
+                        <li>Audience: Grades 8–12</li>
+                        <li>Outcome: Awareness; optional follow‑up tasks</li>
+                    </ul>
+                    <a class="link" href="#" aria-label="Learn about Career Talks">Learn more →</a>
                 </div>
+
                 <div class="card col-6">
-                    <h3 style="margin-top:0">Project Two</h3>
-                    <p>Another highlight. Keep copy scannable and outcome‑focused.</p>
-                    <a class="link" href="#" aria-label="Open Project Two">View project →</a>
+                    <h3 style="margin-top:0">Job‑Shadow Days</h3>
+                    <p><strong>1–2 days</strong> · On‑site observation of roles, meetings, and workflows.</p>
+                    <ul>
+                        <li>Audience: Selected students with interest & consent</li>
+                        <li>Outcome: Reflection worksheet; optional mini‑assignment</li>
+                    </ul>
+                    <a class="link" href="#" aria-label="Learn about Job-Shadow Days">Learn more →</a>
                 </div>
+
                 <div class="card col-6">
-                    <h3 style="margin-top:0">Project Three</h3>
-                    <p>Optional: add a small gallery, GIF, or live demo link.</p>
-                    <a class="link" href="#" aria-label="Open Project Three">View project →</a>
+                    <h3 style="margin-top:0">Externships / Remote Projects</h3>
+                    <p><strong>20–30 hours</strong> · Scoped projects students complete with a mentor and midpoint check‑in.</p>
+                    <ul>
+                        <li>Audience: Motivated students (application + teacher reference)</li>
+                        <li>Outcome: Tangible deliverable; presentation to the team</li>
+                    </ul>
+                    <a class="link" href="#" aria-label="Learn about Externships">Learn more →</a>
                 </div>
+
                 <div class="card col-6">
-                    <h3 style="margin-top:0">Project Four</h3>
-                    <p>Swap cards for whatever layout you prefer (grid, list, timeline).</p>
-                    <a class="link" href="#" aria-label="Open Project Four">View project →</a>
+                    <h3 style="margin-top:0">Conversion to Internship</h3>
+                    <p>High‑performing students may be invited to continue as interns or summer hires at the employer’s discretion.</p>
                 </div>
             </div>
         </section>
@@ -141,14 +187,30 @@
         <section class="panel" role="tabpanel" id="panel-contact" aria-labelledby="tab-contact" hidden>
             <div class="grid">
                 <div class="card col-6">
-                    <h2>Contact</h2>
-                    <p>Drop a short contact note, a mailto link, or embed a form solution (e.g., Netlify Forms) if you later switch hosts.</p>
-                    <p><strong>Email:</strong> <a class="link" href="mailto:hello@example.org">hello@example.org</a></p>
+                    <h2>Get Involved</h2>
+                    <p><strong>Companies</strong> — host a talk, a shadow day, or a scoped externship. Low lift, high impact, clear deliverables.</p>
+                    <p><strong>Schools</strong> — nominate a teacher point‑person and we’ll share ready‑to‑use templates and a rollout plan.</p>
+                    <p><strong>Email:</strong> <a class="link" href="mailto:contact@brightbgminds.org">contact@brightbgminds.org</a></p>
                 </div>
                 <div class="card col-6">
-                    <h2>Location</h2>
-                    <p>City · Country</p>
-                    <p>Open to freelance & collaborations.</p>
+                    <h2>Our Team</h2>
+                    <div class="team">
+                        <article class="person">
+                            <img src="assets/1740914077953.jpeg" alt="Person 1 headshot" class="avatar" />
+                            <h3 class="person-name">Boris Gueorguiev</h3>
+                            <p class="person-role">Founder & Program Lead. Designs the micro‑internship model and employer partnerships.</p>
+                        </article>
+                        <article class="person">
+                            <img src="assets/1741020178155.jpeg" alt="Person 2 headshot" class="avatar" />
+                            <h3 class="person-name">Jordan Iontchev</h3>
+                            <p class="person-role">Founder and Schools Coordinator. Works with teachers to scope projects and support students.</p>
+                        </article>
+                        <article class="person">
+                            <img src="assets/1746647048329.jpeg" alt="Person 3 headshot" class="avatar" />
+                            <h3 class="person-name">Martin Yordanov</h3>
+                            <p class="person-role">Founder and CTO. Responsible for team buildings and workspace atmosphere</p>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -156,7 +218,7 @@
 
     <footer>
         <div class="container" style="padding:0">
-            <span>© <span id="year"></span> BBM Foundation. Built by Martin Yordanov.</span>
+            <span>© <span id="year"></span> Bright Bulgarian Minds Foundation</span>
         </div>
     </footer>
 </main>

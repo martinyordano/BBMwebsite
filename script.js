@@ -2,6 +2,9 @@
 const tablist = document.querySelector('[role="tablist"]');
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
 const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+const buttons = document.querySelectorAll('.lang-btn');
+const i18nElements = document.querySelectorAll('.i18n');
+
 
 function activateTab(tab){
     tabs.forEach(t => t.setAttribute('aria-selected', String(t === tab)));
@@ -42,3 +45,18 @@ document.querySelector('.cta')?.addEventListener('click', (e) => {
 
 // Year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const lang = btn.id === 'lang-en' ? 'en' : 'bg';
+
+        // highlight active button
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // swap text
+        i18nElements.forEach(el => {
+            el.textContent = el.dataset[lang];
+        });
+    });
+});
