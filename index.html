@@ -1,10 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bright Bulgarian Minds</title>
+    <meta name="description" content="Clean, modern static site with tabbed navigation" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-$END$
+<header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+        <div class="brand">
+            <img src="assets/logo2.png" alt="Bright Bulgarian Minds logo" class="logo-img">
+        </div>
+        <div class="tabs" role="tablist" aria-label="Sections">
+            <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home">
+                Home
+                <span class="ink"></span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-about" id="tab-about">
+                About
+                <span class="ink"></span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-projects" id="tab-projects">
+                Projects
+                <span class="ink"></span>
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact">
+                Contact
+                <span class="ink"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero / Intro -->
+    <section class="hero">
+        <div class="card">
+            <span class="badge">New</span>
+            <h1>Clean, modern, and fast.</h1>
+            <p>Starter template with tabbed navigation. Built with semantic HTML, accessible tabs, and a simple 3‑color palette.</p>
+            <button class="cta" data-tab-target="panel-projects" aria-label="View Projects">Get Started →</button>
+        </div>
+        <div class="card">
+            <h3 style="margin-top:0;color:var(--color-primary)">Palette</h3>
+            <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+                <li style="display:flex;gap:10px;align-items:center">
+                    <span style="width:26px;height:26px;border-radius:8px;background:var(--color-primary);display:inline-block"></span>
+                    <span>Primary</span>
+                </li>
+                <li style="display:flex;gap:10px;align-items:center">
+                    <span style="width:26px;height:26px;border-radius:8px;background:var(--color-accent-1);display:inline-block"></span>
+                    <span>Accent 1</span>
+                </li>
+                <li style="display:flex;gap:10px;align-items:center">
+                    <span style="width:26px;height:26px;border-radius:8px;background:var(--color-accent-2);display:inline-block"></span>
+                    <span>Accent 2</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Panels -->
+    <section class="panels">
+        <!-- Home Panel -->
+        <section class="panel" role="tabpanel" id="panel-home" aria-labelledby="tab-home">
+            <div class="grid">
+                <div class="card col-6">
+                    <h2>Welcome</h2>
+                    <p>This is your home panel. Replace the content with your own copy, images, or calls to action.</p>
+                </div>
+                <div class="card col-6">
+                    <h2>Highlights</h2>
+                    <ul>
+                        <li>Accessible, keyboard‑friendly tabs</li>
+                        <li>Responsive grid and cards</li>
+                        <li>Only three accent colors across the UI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Panel -->
+        <section class="panel" role="tabpanel" id="panel-about" aria-labelledby="tab-about" hidden>
+            <div class="grid">
+                <div class="card col-12">
+                    <h2>About</h2>
+                    <p>Write about yourself, your business, or your product. Keep it concise and focused. Use the <span class="link">Projects</span> tab to showcase work.</p>
+                </div>
+                <div class="card col-4">
+                    <h3 style="margin-top:0">Mission</h3>
+                    <p>State a simple, memorable mission that guides your work and decisions.</p>
+                </div>
+                <div class="card col-4">
+                    <h3 style="margin-top:0">Values</h3>
+                    <p>What do you stand for? Choose 3–5 values that resonate with your audience.</p>
+                </div>
+                <div class="card col-4">
+                    <h3 style="margin-top:0">Expertise</h3>
+                    <p>List core skills or domains. Keep the jargon light; focus on outcomes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Panel -->
+        <section class="panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects" hidden>
+            <div class="grid">
+                <div class="card col-12">
+                    <h2>Projects</h2>
+                    <p>Showcase a few selected projects with short descriptions and a link out.</p>
+                </div>
+                <div class="card col-6">
+                    <h3 style="margin-top:0">Project One</h3>
+                    <p>A brief description of what it is, why it matters, and your role.</p>
+                    <a class="link" href="#" aria-label="Open Project One">View project →</a>
+                </div>
+                <div class="card col-6">
+                    <h3 style="margin-top:0">Project Two</h3>
+                    <p>Another highlight. Keep copy scannable and outcome‑focused.</p>
+                    <a class="link" href="#" aria-label="Open Project Two">View project →</a>
+                </div>
+                <div class="card col-6">
+                    <h3 style="margin-top:0">Project Three</h3>
+                    <p>Optional: add a small gallery, GIF, or live demo link.</p>
+                    <a class="link" href="#" aria-label="Open Project Three">View project →</a>
+                </div>
+                <div class="card col-6">
+                    <h3 style="margin-top:0">Project Four</h3>
+                    <p>Swap cards for whatever layout you prefer (grid, list, timeline).</p>
+                    <a class="link" href="#" aria-label="Open Project Four">View project →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Panel -->
+        <section class="panel" role="tabpanel" id="panel-contact" aria-labelledby="tab-contact" hidden>
+            <div class="grid">
+                <div class="card col-6">
+                    <h2>Contact</h2>
+                    <p>Drop a short contact note, a mailto link, or embed a form solution (e.g., Netlify Forms) if you later switch hosts.</p>
+                    <p><strong>Email:</strong> <a class="link" href="mailto:hello@example.org">hello@example.org</a></p>
+                </div>
+                <div class="card col-6">
+                    <h2>Location</h2>
+                    <p>City · Country</p>
+                    <p>Open to freelance & collaborations.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <div class="container" style="padding:0">
+            <span>© <span id="year"></span> BBM Foundation. Built by Martin Yordanov.</span>
+        </div>
+    </footer>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
