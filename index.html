@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180x180.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png">
+
+    <!-- Structured data for Google -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Foundation",
+            "url": "https://www.brightbgminds.org",
+            "logo": "https://www.brightbgminds.org/favicon-512x512.png"
+        }
+    </script>
+
+
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bright Bulgarian Minds</title>
@@ -13,60 +32,63 @@
 </head>
 <body>
 <header>
-    <div class="container nav" role="navigation" aria-label="Primary">
-        <div class="brand"> <img src="assets/logo3.png" alt="Bright Bulgarian Minds logo" class="logo-img">
+    <div class="container nav">
+        <div class="brand">
+            <img src="assets/logo3.png" alt="Bright Bulgarian Minds logo" class="logo-img">
             <span>Bright Bulgarian Minds</span>
         </div>
-        <div class="tabs" role="tablist" aria-label="Sections">
-            <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home">
-                Home
-                <span class="ink"></span>
-            </button>
-            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-about" id="tab-about">
-                About
-                <span class="ink"></span>
-            </button>
-            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-projects" id="tab-projects">
-                Projects
-                <span class="ink"></span>
-            </button>
-            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact">
-                Contact
-                <span class="ink"></span>
-            </button>
-            <div class="lang-switch">
-                <button id="lang-en" class="lang-btn">EN</button>
-                <button id="lang-bg" class="lang-btn">BG</button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-tabs">
+            <span class="sr-only">Menu</span>
+            <svg class="hamburger" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                <!-- three lines -->
+                <path d="M3 6h18M3 12h18M3 18h18"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-width="2"/>
+            </svg>
+        </button>
+        <nav class="tabs" role="tablist" aria-label="Sections" id="primary-tabs">
+            <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home">Home <span class="ink"></span></button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-about" id="tab-about">About <span class="ink"></span></button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-projects" id="tab-projects">Projects <span class="ink"></span></button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact">Contact <span class="ink"></span></button>
+            <div class="lang-switch" role="group" aria-label="Language">
+                <button id="lang-en" class="lang-btn active" aria-pressed="true">EN</button>
+                <button id="lang-bg" class="lang-btn" aria-pressed="false">BG</button>
             </div>
-        </div>
-    </div>
 
+        </nav>
+
+    </div>
 </header>
 
 <main class="container">
     <!-- Hero / Intro -->
     <section class="hero">
-        <div class="card">
-            <span class="badge">Mission</span>
-            <h1>Bridge students in smaller Bulgarian communities to real workplaces.</h1>
-            <p>We run structured, educational micro‑internships so students outside big cities can see credible career paths and gain real experience — without creating a time sink for employers.</p>
-            <button class="cta" data-tab-target="panel-projects" aria-label="View Programs">Explore Programs →</button>
-        </div>
-        <div class="card">
-            <h3 style="margin-top:0;color:var(--color-primary)">At a glance</h3>
-            <ul style="margin:0;padding-left:18px">
-                <li>Regional‑first: municipalities outside Sofia & smaller non‑technical Sofia schools</li>
-                <li>Structured: mentor guide, student workbook, clear learning outcomes</li>
-                <li>Low lift for employers: scoped tasks, midpoint check‑in, end deliverable</li>
-            </ul>
-        </div>
+
+
     </section>
 
     <!-- Panels -->
     <section class="panels">
         <!-- Home Panel -->
+
         <section class="panel" role="tabpanel" id="panel-home" aria-labelledby="tab-home">
+
+            <img src="assets/mainPagePhoto.png" alt="Home Page Photo" class="home-img"
+                 style="width: 100%; height: auto;">
+
+
             <div class="grid">
+                <div class="card col-12">
+                    <span class="badge">Mission</span>
+                    <h1>Bridge students in smaller Bulgarian communities to real workplaces.</h1>
+                    <p>We run structured, educational micro‑internships so students outside big cities can see credible
+                        career paths and gain real experience — without creating a time sink for employers.</p>
+                    <button class="cta" data-tab-target="panel-projects" aria-label="View Programs">Explore Programs →
+                    </button>
+                </div>
                 <div class="card col-6">
                     <h2>Welcome</h2>
                     <p>This is your home panel. Replace the content with your own copy, images, or calls to action.</p>
@@ -218,11 +240,11 @@
 
     <footer>
         <div class="container" style="padding:0">
-            <span>© <span id="year"></span> Bright Bulgarian Minds Foundation</span>
+            <span>© <span id="year"></span> Bright Bulgarian Minds</span>
         </div>
     </footer>
 </main>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

@@ -52,7 +52,7 @@ header{
 .brand{
     display:flex;align-items:center;gap:12px;
     font-weight:700;color:var(--color-primary);letter-spacing:0.2px;
-    font-size: xxx-large;
+    font-size: xx-large;
     font-family: 'Montserrat', sans-serif;
 
 
@@ -218,3 +218,240 @@ footer{
     .col-6{grid-column: span 12}
     .col-4{grid-column: span 12}
 }
+@media (max-width: 700px) {
+    .logo-img {
+        height: 70px;   /* smaller logo */
+    }
+    .brand span {
+        font-size: 1.4rem; /* smaller text */
+    }
+}
+
+
+/* Header cleanups */
+header{ border-bottom:1px solid #E5E7EB; }
+
+/* Brand: fluid logo + wordmark */
+.logo-img{ height: clamp(48px, 10vw, 110px); }
+.brand span{ font-size: clamp(1.1rem, 3.5vw, 1.9rem); }
+
+/* Tabs: scroll-snap on small screens, better focus */
+.tabs{ gap:8px; scroll-snap-type: x mandatory; }
+.tab-btn{ scroll-snap-align: start; }
+.tab-btn:focus-visible{ outline: 3px solid var(--ring); outline-offset: 2px; }
+
+/* Language buttons: active state */
+.lang-btn.active{ background: var(--color-primary); }
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+}
+
+header {
+    position: sticky;   /* stays at the top but keeps layout flow */
+    top: 0;
+    z-index: 1000;
+    padding: 0.35rem 1rem;
+    backdrop-filter: saturate(140%) blur(6px);
+    -webkit-backdrop-filter: saturate(140%) blur(6px);
+}
+
+/* brand row sizing */
+.brand {
+    gap: 0.5rem;
+}
+
+/* smaller, fluid logo — hard cap much lower than before */
+.logo-img {
+    max-height: clamp(28px, 5.5vw, 56px); /* <- main change */
+    width: auto;
+}
+
+.home-img {
+    width: auto;
+    max-height: clamp(210px, 41vw, 620px);
+    border-radius: var(--radius);
+}
+
+/* smaller wordmark text */
+.brand span {
+    font-size: clamp(0.95rem, 2.6vw, 1.25rem);
+    line-height: 1.1;
+}
+
+/* tabs + language buttons proportionally smaller */
+.tab-btn {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.9rem;
+}
+.lang-btn {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.85rem;
+}
+
+/* Optional: add a subtle divider so the sticky header reads as a bar */
+header { border-bottom: 1px solid #E5E7EB; }
+
+/* (Optional) When header is 'compact' after scrolling a bit */
+header.compact {
+    padding: 0.25rem 0.9rem;
+}
+header.compact .logo-img {
+    max-height: clamp(24px, 4.5vw, 44px);
+}
+header.compact .brand span {
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+}
+header.compact .tab-btn {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.85rem;
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: no-preference) {
+    header, .logo-img, .brand span, .tab-btn { transition: all .18s ease; }
+}
+/* Adjust the animated underline (ink) position */
+.tab-btn .ink {
+    display: block;
+    position: relative;
+    bottom: -2px;   /* push it slightly lower */
+    left: -1px;
+}
+
+/* If you use transform instead of bottom: */
+.tab-btn .ink {
+    transform: translateY(2px);
+}
+
+/* Hide hamburger on desktop by default */
+.nav-toggle {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Show hamburger only on mobile (≤768px) */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    .tabs {
+        display: none; /* hide full tab nav on mobile */
+    }
+    .tabs.open {
+        display: flex;           /* or block */
+        flex-direction: column;  /* stack vertically */
+        background: white;       /* dropdown style */
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Base: hidden on desktop */
+.nav-toggle{
+    display:none;
+    border:0;
+    background:transparent;
+    padding:0.4rem;
+    line-height:0;
+    cursor:pointer;
+    color: inherit;           /* so SVG uses text color */
+    z-index: 1100;            /* above sticky header backdrop */
+}
+
+/* Keep brand, toggle, and tabs aligned */
+.container.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 0.75rem;
+}
+
+/* Mobile rules */
+@media (max-width: 768px){
+    .nav-toggle{ display:block; }                 /* show hamburger */
+    .tabs{ display:none !important; }             /* hide full tabs */
+    .tabs.open{
+        display:flex !important;
+        flex-direction:column;
+        gap: 0.25rem;
+        background: #fff;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+    header{ position: sticky; top:0; }            /* keep your sticky header */
+}
+
+
+/* Hide-only-for-visuals helper so “Menu” is not visible but readable by screen readers */
+.sr-only{
+    position:absolute!important;
+    width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* Base styling for the toggle (hidden on desktop) */
+.nav-toggle{
+    display:none;               /* shown only on mobile below */
+    border:0;
+    background:transparent;
+    padding:0.4rem;
+    line-height:0;
+    cursor:pointer;
+    color: var(--color-primary);         /* theme color for the icon */
+}
+
+/* Slight hover/focus feedback */
+.nav-toggle:focus-visible{ outline: 3px solid var(--ring); outline-offset: 2px; }
+.nav-toggle:hover{ opacity:.85; }
+
+/* Ensure header layout works with toggle */
+.container.nav{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; }
+
+/* MOBILE: show hamburger, hide full tabs by default */
+@media (max-width: 768px){
+    .nav-toggle{ display:block; }
+
+    /* The nav that holds tabs + language switch is hidden until opened */
+    .tabs{ display:none !important; }
+    .tabs.open{
+        display:flex !important;
+        flex-direction:column;
+        gap: .35rem;
+        background: #fff;
+        padding: 0.6rem 0.8rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        position: absolute;
+        top: 100%;       /* right under the header row */
+        right: 1rem;
+        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        z-index: 1200;
+        min-width: 220px;
+    }
+
+    /* Make the tab buttons and language buttons comfy in the dropdown */
+    .tabs.open .tab-btn{
+        width: 100%;
+        text-align: left;
+        padding: 0.6rem 0.7rem;
+        font-size: 0.95rem;
+    }
+    .tabs.open .lang-switch{
+        display:flex; gap: .4rem; margin-top: .35rem;
+    }
+    .tabs.open .lang-btn{
+        flex:1; padding: 0.45rem 0.6rem;
+    }
+}
+
+/* OPTIONAL: when aria-expanded=true, tint the icon a bit differently */
+.nav-toggle[aria-expanded="true"]{ color: var(--color-primary); filter: brightness(0.9); }
